@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  let counter = 0;
 
   let button = document.getElementById('start');
   let tbuvod = document.getElementById("uvod");
@@ -27,23 +28,33 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (hrac1 === 0 && (hrac2 === 1 || hrac2 === 3)) {
       vitez1.innerHTML = "Hráč 1<br/>vyhrál.";
       vitez1.style.color = "red";
+      score();
       remiza = false;
+      
     } else if (hrac1 === 1 && (hrac2 === 2 || hrac2 === 3)) {
       vitez1.innerHTML = "Hráč 1<br/>vyhrál.";
       vitez1.style.color = "red";
+      score();
       remiza = false;
+      
     } else if (hrac1 === 2 && (hrac2 === 0 || hrac2 === 4)) {
       vitez1.innerHTML = "Hráč 1<br/>vyhrál.";
       vitez1.style.color = "red";
+      score();
       remiza = false;
+      
     } else if (hrac1 === 3 && (hrac2 === 2 || hrac2 === 4)) {
       vitez1.innerHTML = "Hráč 1<br/>vyhrál.";
       vitez1.style.color = "red";
+      score();
       remiza = false;
+      
     } else if (hrac1 === 4 && (hrac2 === 1 || hrac2 === 0)) {
       vitez1.innerHTML = "Hráč 1<br/>vyhrál.";
       vitez1.style.color = "red";
+      score();
       remiza = false;
+      
     } 
       else if (hrac1 === 0 && (hrac2 === 2 || hrac2 === 4)) {
       vitez2.innerHTML = "Hráč 2<br/>vyhrál.";
@@ -74,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     vitez1.style.color = "white";
     vitez2.innerHTML = "Hráč 2";
     vitez2.style.color = "white";
-    obr1.src = "https://commons.wikimedia.org/wiki/File:Pierre_ciseaux_feuille_l%C3%A9zard_spock_aligned.svg";
-    obr2.src = "https://commons.wikimedia.org/wiki/File:Pierre_ciseaux_feuille_l%C3%A9zard_spock_aligned.svg";
+    obr1.src = "https://wallpapers.com/images/hd/black-page-wx75651aarimwdec.jpg";
+    obr2.src = "https://wallpapers.com/images/hd/black-page-wx75651aarimwdec.jpg";
     button.remove();
     tbuvod.innerText = "vyber volbu";
     tbuvod.style.color = "white";
@@ -143,8 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
       vyhodnoceni(volba);
       playerchoicetb.style.display = "none";
       loop();
-    } 
+    }
+  } 
     function reset() {
+      let playerchoicetb =  document.getElementById("plchoice");
       vitez1.innerHTML = "Hráč 1";
       vitez2.innerHTML = "Hráč 2";
       vitez1.style.color = "white";
@@ -165,6 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
         reset();
       }
     }
-  }
+    
+    function score() { 
+      counter++;
+      let scoretb = document.getElementById("score");
+      scoretb.innerHTML = "<h1>Výhry: " + parseInt(counter) + "</h1>"; 
+      
+    }
+  
 });
 
